@@ -1,0 +1,73 @@
+﻿@model STMGMTSYS.Models.CustomerModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CustomerModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CustomerCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddressLine1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressLine1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddressLine2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressLine2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddressLine3)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressLine3)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telephone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telephone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+
+    
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { customerCode = Model.CustomerCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

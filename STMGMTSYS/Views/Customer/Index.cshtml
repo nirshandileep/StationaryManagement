@@ -1,0 +1,88 @@
+﻿@model IEnumerable<STMGMTSYS.Models.CustomerModel>
+
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Customer"))
+{
+<div>
+    <p><b> Search:</b> </p><br />
+   <label>Code :</label>
+     <input id= "code" type="text"  name ="code" />
+     <label>Name :</label>
+     <input id= "name" type="text"  name ="name" />
+     <label>Is Active :</label>
+     <input id= "active" type="checkbox" name ="active" />
+     <br />
+     <input type="submit" id="Search" value="Search"  />
+    
+    @* @Html.ActionLink("Search", "Search", new { bIsActive = chkIsActive, name = txtSrchName, code = txtSrchCode })*@
+
+</div>
+}
+    <p>
+    @Html.ActionLink("Create New", "Create")
+    </p>
+
+
+@if (Model != null && Model.Count() > 0)
+{
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+       
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+       
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+        
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { customerCode = item.CustomerCode }) |
+                @Html.ActionLink("Details", "Details", new { customerCode = item.CustomerCode }) |
+                @Html.ActionLink("Delete", "Delete", new { customerID = item.CustomerID }, new
+           {
+               onclick = "return confirm('Are you sure you wish to delete customer : " +
+                          item.CustomerCode + "?' );"
+           })
+            </td>
+        </tr>
+    }
+    </table>
+}
+else
+{
+   <label id="lblErrorMsg" title="No Records found!" style="color:Red;">No Records Found!</label>
+}
+
+

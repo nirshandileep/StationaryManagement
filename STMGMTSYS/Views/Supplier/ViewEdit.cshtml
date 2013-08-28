@@ -1,0 +1,87 @@
+﻿
+
+@model STMGMTSYS.Models.SupplierModel
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        @Html.HiddenFor(model=> model.SupplierID)
+
+        <legend>CustomerModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SupplierName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SupplierName)
+            @Html.ValidationMessageFor(model => model.SupplierName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddresssLine1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddresssLine1)
+            @Html.ValidationMessageFor(model => model.AddresssLine1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddresssLine2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddresssLine2)
+            @Html.ValidationMessageFor(model => model.AddresssLine2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddresssLine3)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddresssLine3)
+            @Html.ValidationMessageFor(model => model.AddresssLine3)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telephone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telephone)
+            @Html.ValidationMessageFor(model => model.Telephone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsActive)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsActive)
+            @Html.ValidationMessageFor(model => model.IsActive)
+        </div>
+
+     @*   @if (Roles.IsUserInRole("admin") == true)
+        {
+        <p>
+            <input type="submit" value=@ViewBag.Command />
+        </p>
+        }*@
+        <p>
+            <input type="submit" value=@ViewBag.Command />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

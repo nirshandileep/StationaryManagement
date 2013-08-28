@@ -1,0 +1,43 @@
+﻿@model STMGMTSYS.Models.PackageModel
+@{
+    ViewBag.Title = "Details";
+}
+<h2>
+    Details</h2>
+<fieldset>
+    <legend>PackageModel</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PackageCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PackageCode)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PackageName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PackageName)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ItemID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ItemID)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.QtyPerPack)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QtyPerPack)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.IsActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PackageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<STMGMTSYS.Models.ItemModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Item"))
+{
+    <div>
+        <p>
+            <b>Search:</b>
+        </p>
+        <br />
+        <label>
+            Item Code :</label>
+        <input id="ItemCode" type="text" name="ItemCode" />
+        <label>
+            Name :</label>
+        <input id="Name" type="text" name="Name" />
+        <label>
+            Is Active :</label>
+        <input id="active" type="checkbox" name="active" />
+        <br />
+        <input type="submit" id="Search" value="Search" />
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommercialValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemStatusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QIH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommercialValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemStatusID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QIH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ItemID }, new {
+               onclick = "return confirm('Are you sure you wish to delete Item` : " +
+                          item.Name + "?' );"
+           })
+        </td>
+    </tr>
+}
+
+</table>

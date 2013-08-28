@@ -1,0 +1,58 @@
+﻿@model STMGMTSYS.Models.ItemModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ItemModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ItemCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ItemCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CommercialValue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommercialValue)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ItemStatusID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ItemStatusID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QIH)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QIH)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ItemID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

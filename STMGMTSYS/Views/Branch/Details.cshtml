@@ -1,0 +1,71 @@
+﻿@model STMGMTSYS.Models.BranchModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BranchModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BranchName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddressLine1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressLine1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddressLine2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressLine2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddressLine3)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddressLine3)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telephone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telephone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MainBranchID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MainBranchID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsActive)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BranchID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

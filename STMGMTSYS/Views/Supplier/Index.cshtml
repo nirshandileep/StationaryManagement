@@ -1,0 +1,84 @@
+﻿@model IEnumerable<STMGMTSYS.Models.SupplierModel>
+@{
+    ViewBag.Title = "Suppliers";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("Index", "Supplier"))
+{
+    <div>
+        <p>
+            <b>Search:</b>
+        </p>
+        <br />
+        <label>
+            Supplier Name :</label>
+        <input id="SupplierName" type="text" name="SupplierName" />
+        <label>
+            Address :</label>
+        <input id="name" type="text" name="AddresssLine1" />
+        <label>
+            Is Active :</label>
+        <input id="active" type="checkbox" name="active" />
+        <br />
+        <input type="submit" id="Search" value="Search" />
+    </div>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@if (Model != null && Model.Count() > 0)
+{
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddresssLine1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddresssLine1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telephone)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { supplerId = item.SupplierID }) |
+                    @Html.ActionLink("Delete", "Delete", new { supplerId = item.SupplierID }, new
+           {
+               onclick = "return confirm('Are you sure you wish to delete supplier : " +
+                          item.SupplierName + "?' );"
+           })
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <label id="lblErrorMsg" title="No Records found!" style="color: Red;">
+        No Records Found!</label>
+}
