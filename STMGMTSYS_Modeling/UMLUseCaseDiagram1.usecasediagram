@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c8f7de17-7fbd-4079-b59b-c6864f11116f" name="UMLUseCaseDiagram1" linkedPackageId="6c1057fd-0603-464b-8f34-56e2df923085" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="6d341516-90c9-45fa-867a-2a8057d188ed" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d89f8159-0aa2-4a61-8a4b-63c4612f9524" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cd67087b-ea9e-4f76-b856-05584d0e8720" name="UseCase1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cc0942ac-1625-4511-a19b-b3997ea55526" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="6c1057fd-0603-464b-8f34-56e2df923085" name="STMGMTSYS_Modeling">
+    <elementDefinition Id="f48ab597-08bb-4efa-b3bb-081ad1627c24" />
+    <profileInstances>
+      <packageHasProfileInstances Id="4db7520a-ef41-4f35-85a3-b03d6bca0626">
+        <profileInstance Id="590d309c-5992-4724-a9b8-0b3e4f5faab5" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="bd7eb70d-bf07-4006-a3ef-36fd2d05e12a">
+        <profileInstance Id="2dc87f34-0f56-4000-99f5-60357fd6df1d" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>
