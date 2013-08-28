@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="STMGMTSYS_SERVICE.STMGMTService" CodeBehind="STMGMTService.svc.cs" %>
