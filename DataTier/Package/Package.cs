@@ -9,7 +9,7 @@ namespace DataTier.Package
     {
 
         public int PackageID { get; set; }
-        public int ItemID { get; set; }
+        public Item.Item Item { get; set; }
         public string PackageCode { get; set; }
         public string PackageName { get; set; }
         public int QtyPerPack { get; set; }

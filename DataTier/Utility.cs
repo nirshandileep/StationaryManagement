@@ -42,12 +42,15 @@ namespace DataTier
           {
               List<T> lst = new System.Collections.Generic.List<T>();
 
-              foreach (var item in srcList)
+              if (srcList != null)
               {
-                  T tmp = convertSrcToTarget<src,T>(item);
+                  foreach (var item in srcList)
+                  {
+                      T tmp = convertSrcToTarget<src, T>(item);
 
-                  if (tmp != null)
-                      lst.Add(tmp);
+                      if (tmp != null)
+                          lst.Add(tmp);
+                  }
               }
 
               return lst;

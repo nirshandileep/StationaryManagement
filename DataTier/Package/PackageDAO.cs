@@ -49,7 +49,7 @@ namespace DataTier.Package
                 Database db = DatabaseFactory.CreateDatabase(Constants.DBConnection);
                 DbCommand cmd = db.GetStoredProcCommand(Constants.SP_Package_Insert);
 
-                db.AddInParameter(cmd, "ItemID", DbType.Int32, package.ItemID);
+                db.AddInParameter(cmd, "ItemID", DbType.Int32, package.Item.ItemID);
                 db.AddInParameter(cmd, "QtyPerPack", DbType.Int32, package.QtyPerPack);
                 db.AddInParameter(cmd, "PackageCode", DbType.String, package.PackageCode);
                 db.AddInParameter(cmd, "PackageName", DbType.String, package.PackageName);

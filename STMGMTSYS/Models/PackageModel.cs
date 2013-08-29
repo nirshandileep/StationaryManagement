@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using DataTier.Item;
+using System.Web.Mvc;
 
 namespace STMGMTSYS.Models
 {
@@ -12,7 +14,7 @@ namespace STMGMTSYS.Models
         public int PackageID { get; set; }
 
         [Required(ErrorMessage="Item Required")]
-        public int ItemID { get; set; }
+        public Item Item { get; set; }
         public string PackageCode { get; set; }
 
         [Required(ErrorMessage = "Package Name Required")]
@@ -25,5 +27,18 @@ namespace STMGMTSYS.Models
         public DateTime CreatedDate { get; set; }
         public int UpdatedBY { get; set; }
         public DateTime UpdatedDate { get; set; }
+        public List<SelectListItem> Items { get; set; }
+
+        public PackageModel()
+        {
+            List<Item> allItems = ItemManager.GetAllItem(new Item() { ItemCode = "", IsActive = true , Name = "" }, "nirshan");
+            Items = allItems.Select(map =>
+                new SelectListItem 
+                { 
+                    Text = map.ItemCode, 
+                    Value = map.ItemID.ToString() 
+                }).ToList();
+
+        }
     }
 }

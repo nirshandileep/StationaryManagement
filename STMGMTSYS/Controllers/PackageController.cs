@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DataTier.Package;
 using STMGMTSYS.Models;
 using DataTier;
+using DataTier.Item;
 
 namespace STMGMTSYS.Controllers
 {
@@ -37,6 +38,7 @@ namespace STMGMTSYS.Controllers
         public ActionResult Create()
         {
             PackageModel newPackage = new PackageModel() { IsActive = true };
+            ViewBag.Items = newPackage.Items;
             return View(newPackage);
         }
 
@@ -48,7 +50,10 @@ namespace STMGMTSYS.Controllers
         {
             try
             {
+                string item = Request.Form.GetValues("Items") != null ? Request.Form.GetValues("Items")[0] : "";
+                package.Item = ItemManager.GetItemByID(int.Parse(item.ToString()), "nirshan");
                 PackageManager.AddPackage(Utility.convertSrcToTarget<PackageModel, Package>(package), "nirshan");
+                
                 return RedirectToAction("Index");
             }
             catch
