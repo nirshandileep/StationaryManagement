@@ -58,7 +58,7 @@ namespace STMGMTSYS.Controllers
 
         //
         // GET: /Branch/Create
-
+        [HttpGet]
         public ActionResult Create()
         {
             BranchModel branchModel = new BranchModel() { IsActive = true };

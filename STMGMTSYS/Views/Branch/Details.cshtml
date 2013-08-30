@@ -9,6 +9,13 @@
 <fieldset>
     <legend>BranchModel</legend>
 
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.BranchCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BranchCode)
+    </div>
+
     <div class="display-label">
          @Html.DisplayNameFor(model => model.BranchName)
     </div>
@@ -51,12 +58,12 @@
         @Html.DisplayFor(model => model.Email)
     </div>
 
-    <div class="display-label">
+   @* <div class="display-label">
          @Html.DisplayNameFor(model => model.MainBranchID)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.MainBranchID)
-    </div>
+    </div>*@
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.IsActive)

@@ -59,5 +59,21 @@ namespace CommonTier
         public static readonly string SP_Package_Delete = "usp_Package_Delete";
         public static readonly string SP_Package_Select = "usp_Package_Select";
 
+
+        /// <summary>
+        /// Transfer
+        /// </summary>
+        public static readonly string SP_Transfer_Search = "usp_Transfer_Search";
+        public static readonly string SP_Transfer_Insert = "usp_Transfer_Insert";
+        public static readonly string SP_Transfer_Update = "usp_Transfer_Update";
+        public static readonly string SP_Transfer_GetByID = "usp_Transfer_Select";
+
+        /// <summary>
+        /// Transfer Details
+        /// </summary>
+        public static readonly string SP_TransferDetail_Insert = "usp_TransferDetails_Insert";
+        public static readonly string SP_TransferDetail_Update = "usp_TransferDetails_Update";
+        public static readonly string SP_TransferDetail_Select = "usp_TransferDetails_Select";
+        public static readonly string SP_TransferDetail_GetByTransferID = "usp_TransferDetails_GetByTransferID";
     }
 }

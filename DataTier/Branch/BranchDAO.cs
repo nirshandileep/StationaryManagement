@@ -26,7 +26,7 @@ namespace DataTier.Branch
                 db.AddInParameter(cmd, "AddressLine3", DbType.String, branch.AddressLine3);
                 db.AddInParameter(cmd, "Telephone", DbType.String, branch.Telephone);
                 db.AddInParameter(cmd, "Email", DbType.String, branch.Email);
-                db.AddInParameter(cmd, "MainBranchID", DbType.Int32, branch.MainBranchID);
+                //db.AddInParameter(cmd, "MainBranchID", DbType.Int32, branch.MainBranchID);
                 db.AddInParameter(cmd, "IsActive", DbType.Boolean, branch.IsActive);
                 db.AddInParameter(cmd, "CreatedBy", DbType.Int32, 1);
 
@@ -96,7 +96,7 @@ namespace DataTier.Branch
                 db.AddInParameter(cmd, "AddressLine3", DbType.String, branch.AddressLine3);
                 db.AddInParameter(cmd, "Telephone", DbType.String, branch.Telephone);
                 db.AddInParameter(cmd, "Email", DbType.String, branch.Email);
-                db.AddInParameter(cmd, "MainBranchID", DbType.Int32, branch.MainBranchID);
+                //db.AddInParameter(cmd, "MainBranchID", DbType.Int32, branch.MainBranchID);
                 db.AddInParameter(cmd, "IsActive", DbType.Boolean, branch.IsActive);
                 db.AddInParameter(cmd, "UpdatedBY", DbType.Int32, 1);
 

@@ -33,9 +33,12 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BranchName)
+            @Html.DisplayNameFor(model => model.BranchCode)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.BranchName)
+        </th>
+       @* <th>
             @Html.DisplayNameFor(model => model.AddressLine1)
         </th>
         <th>
@@ -43,16 +46,16 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AddressLine3)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Telephone)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.MainBranchID)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
         </th>
@@ -61,6 +64,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranchCode)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.BranchName)
         </td>

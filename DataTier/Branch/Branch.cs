@@ -8,6 +8,7 @@ namespace DataTier.Branch
     public class Branch
     {
         public int BranchID { get; set; }
+        public string BranchCode { get; set; }
         public string BranchName { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
