@@ -33,7 +33,7 @@ namespace DataTier.Transfer
 
         #region Transfer Detail
 
-        public static TransferDetail GetTransferByID(int transferDetailID, string executedBy)
+        public static TransferDetail GetTransferDetailByID(int transferDetailID, string executedBy)
         {
             return TransferDAO.GetDetailByDetailID(transferDetailID, executedBy);
         }
