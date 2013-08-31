@@ -29,6 +29,11 @@ namespace DataTier.Transfer
             return TransferDAO.GetByID(transferID, executedBy);
         }
 
+        public static bool ApproveTransferBulk(string transferIDs, int approvedBy, string executedBy)
+        {
+            return TransferDAO.ApproveBulk(transferIDs, approvedBy, executedBy);
+        }
+
         #endregion
 
         #region Transfer Detail

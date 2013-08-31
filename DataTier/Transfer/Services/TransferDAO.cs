@@ -103,13 +103,13 @@ namespace DataTier.Transfer
                 db.AddInParameter(cmd, "UpdatedBY", DbType.Int32, transfer.UpdatedBY);
                 db.AddInParameter(cmd, "LastUpdatedDate", DbType.Int32, transfer.UpdatedDate);
 
-                db.ExecuteNonQuery(cmd);
+                db.ExecuteNonQuery(cmd, transaction);
 
-                bool dtlInserted;
+                bool dtlUpdated;
                 foreach (TransferDetail trDtl in transfer.TransferItems)
                 {
-                    dtlInserted = UpdateDetail(trDtl, transaction, executedBy);
-                    if (dtlInserted == false)
+                    dtlUpdated = UpdateDetail(trDtl, transaction, executedBy);
+                    if (dtlUpdated == false)
                     {
                         throw new Exception("Failed to update transfer detail/s");
                     }
@@ -201,6 +201,34 @@ namespace DataTier.Transfer
 
         }
 
+        public static bool ApproveBulk(string transferIDs, int approvedBy, string executedBy)
+        {
+            bool rslt = false;
+
+            try
+            {
+                Database db = DatabaseFactory.CreateDatabase(Constants.DBConnection);
+                DbCommand cmd = db.GetStoredProcCommand(Constants.SP_Transfer_ApproveBulk);
+
+
+                db.AddInParameter(cmd, "TransferIDs", DbType.Int32, transferIDs);
+                db.AddInParameter(cmd, "ApprovedBy", DbType.Int32, approvedBy);
+              
+                db.ExecuteNonQuery(cmd);
+
+                rslt = true;
+            }
+
+            catch (Exception ex)
+            {
+                rslt = false;
+                throw ex;
+            }
+           
+            return rslt;
+
+        }
+
         #endregion
 
         #region Transfer Details
@@ -255,7 +283,7 @@ namespace DataTier.Transfer
                 db.AddInParameter(cmd, "QtyTransferred", DbType.Int32, transferDetail.QtyTransferred);
                 db.AddInParameter(cmd, "QtyReceived", DbType.Int32, transferDetail.QtyReceived);
                 db.AddInParameter(cmd, "UpdatedBY", DbType.Int32, transferDetail.UpdatedBY);
-                db.AddInParameter(cmd, "UpdatedDate", DbType.Int32, transferDetail.UpdatedDate);
+                //db.AddInParameter(cmd, "UpdatedDate", DbType.Int32, transferDetail.UpdatedDate);
 
                 db.ExecuteNonQuery(cmd, pTransaction);
                      rslt = true;

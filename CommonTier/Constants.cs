@@ -9,7 +9,7 @@ namespace CommonTier
     public class Constants
     {
         //public static readonly string DBConnection = ConfigurationManager.ConnectionStrings["STMGMT"].ToString();
-        public static readonly string DBConnection = "STMGMT";
+        public static readonly string DBConnection = "SRM-SYS";
 
         /// <summary>
         /// Customer
@@ -67,6 +67,7 @@ namespace CommonTier
         public static readonly string SP_Transfer_Insert = "usp_Transfer_Insert";
         public static readonly string SP_Transfer_Update = "usp_Transfer_Update";
         public static readonly string SP_Transfer_GetByID = "usp_Transfer_Select";
+        public static readonly string SP_Transfer_ApproveBulk = "usp_Transfer_ApproveBulk";
 
         /// <summary>
         /// Transfer Details
@@ -75,5 +76,23 @@ namespace CommonTier
         public static readonly string SP_TransferDetail_Update = "usp_TransferDetails_Update";
         public static readonly string SP_TransferDetail_Select = "usp_TransferDetails_Select";
         public static readonly string SP_TransferDetail_GetByTransferID = "usp_TransferDetails_GetByTransferID";
+
+        /// <summary>
+        /// Order
+        /// </summary>
+        public static readonly string SP_Order_Insert = "usp_Order_Insert";
+        public static readonly string SP_Order_Update = "usp_Order_Update";
+        public static readonly string SP_Order_GetByID = "usp_Order_Select";
+        public static readonly string SP_Order_Search = "usp_Order_Search";
+        
+
+        /// <summary>
+        /// Order Details
+        /// </summary>
+        public static readonly string SP_OrderDetails_Insert = "usp_OrderDetails_Insert";
+        public static readonly string SP_OrderDetails_Update = "usp_OrderDetails_Update";
+        public static readonly string SP_OrderDetails_Select = "usp_OrderDetails_Select";
+        public static readonly string SP_OrderDetails_GetByOrderID = "usp_OrderDetails_GetByOrderID";
+        
     }
 }
