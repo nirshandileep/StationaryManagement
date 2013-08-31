@@ -1,0 +1,18 @@
+/****** Object:  UserDefinedFunction [dbo].[getNextNumber]    Script Date: 08/31/2013 09:21:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create function [dbo].[getNextNumber](@sPrefix char(3), @iNextNo int)
+returns char(8)
+as
+begin
+	declare @sNextNumber char(8)
+
+	set  @sNextNumber = cast (@sPrefix as varchar) + right('00000'+ cast(@iNextNo as varchar), 5  )
+
+return Replace(@sNextNumber,' ','')
+end
+
+
