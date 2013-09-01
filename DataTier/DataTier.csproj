@@ -75,6 +75,7 @@
     <Compile Include="Transfer\TransferDAO.cs" />
     <Compile Include="Transfer\TransferDetail.cs" />
     <Compile Include="Transfer\TransferManager.cs" />
+    <Compile Include="User\Role.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="User\UserDAO.cs" />
     <Compile Include="User\UserManager.cs" />
