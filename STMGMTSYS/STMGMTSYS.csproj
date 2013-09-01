@@ -171,6 +171,7 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\TransferController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +185,8 @@
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\PackageModel.cs" />
     <Compile Include="Models\SupplierModel.cs" />
+    <Compile Include="Models\TransferDetailModel.cs" />
+    <Compile Include="Models\TransferModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -371,6 +374,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Package\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Transfer\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Transfer\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

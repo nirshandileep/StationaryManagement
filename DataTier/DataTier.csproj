@@ -60,6 +60,10 @@
     <Compile Include="Item\Item.cs" />
     <Compile Include="Item\ItemDAO.cs" />
     <Compile Include="Item\ItemManager.cs" />
+    <Compile Include="Order\Order.cs" />
+    <Compile Include="Order\OrderDAO.cs" />
+    <Compile Include="Order\OrderDetails.cs" />
+    <Compile Include="Order\OrderManager.cs" />
     <Compile Include="Package\Package.cs" />
     <Compile Include="Package\PackageDAO.cs" />
     <Compile Include="Package\PackageManager.cs" />
@@ -67,6 +71,10 @@
     <Compile Include="Supplier\Supplier.cs" />
     <Compile Include="Supplier\SupplierDAO.cs" />
     <Compile Include="Supplier\SupplierManager.cs" />
+    <Compile Include="Transfer\Transfer.cs" />
+    <Compile Include="Transfer\TransferDAO.cs" />
+    <Compile Include="Transfer\TransferDetail.cs" />
+    <Compile Include="Transfer\TransferManager.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="User\UserDAO.cs" />
     <Compile Include="User\UserManager.cs" />
