@@ -67,6 +67,9 @@
     <Compile Include="Supplier\Supplier.cs" />
     <Compile Include="Supplier\SupplierDAO.cs" />
     <Compile Include="Supplier\SupplierManager.cs" />
+    <Compile Include="User\User.cs" />
+    <Compile Include="User\UserDAO.cs" />
+    <Compile Include="User\UserManager.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
