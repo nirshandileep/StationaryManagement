@@ -23,11 +23,10 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ItemID)
+            @Html.LabelFor(model => model.Item)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ItemID)
-            @Html.ValidationMessageFor(model => model.ItemID)
+            @Html.DisplayFor(model => model.Item.ItemCode)
         </div>
 
         <div class="editor-label">

@@ -23,6 +23,7 @@ namespace DataTier.Package
                 db.AddInParameter(cmd, "IsActive", DbType.Boolean, srchPackage.IsActive);
                 db.AddInParameter(cmd, "PackageCode", DbType.String, srchPackage.PackageCode);
                 db.AddInParameter(cmd, "PackageName", DbType.String, srchPackage.PackageName);
+                db.AddInParameter(cmd, "ItemID", DbType.Int32, srchPackage.ItemID);
 
                 DataSet ds = db.ExecuteDataSet(cmd);
 
@@ -51,7 +52,6 @@ namespace DataTier.Package
 
                 db.AddInParameter(cmd, "ItemID", DbType.Int32, package.Item.ItemID);
                 db.AddInParameter(cmd, "QtyPerPack", DbType.Int32, package.QtyPerPack);
-                db.AddInParameter(cmd, "PackageCode", DbType.String, package.PackageCode);
                 db.AddInParameter(cmd, "PackageName", DbType.String, package.PackageName);
                 db.AddInParameter(cmd, "IsActive", DbType.Boolean, package.IsActive);
                 db.AddInParameter(cmd, "CreatedBy", DbType.Int32, 1);
@@ -135,7 +135,7 @@ namespace DataTier.Package
 
         public static Package GetById(int packageID, string executedBy)
         {
-            Package supplier = null;
+            Package package = null;
 
             try
             {
@@ -147,18 +147,19 @@ namespace DataTier.Package
                 DataSet ds = db.ExecuteDataSet(cmd);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null)
                 {
-                    supplier = Utility.DataTableToCollection<Package>(ds.Tables[0]).FirstOrDefault();
+                    package = Utility.DataTableToCollection<Package>(ds.Tables[0]).FirstOrDefault();
                 }
 
             }
 
             catch (Exception ex)
             {
-                supplier = null;
+                package = null;
             }
 
-            return supplier;
+            return package;
 
         }
+        
     }
 }

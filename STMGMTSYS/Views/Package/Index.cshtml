@@ -4,6 +4,26 @@
 }
 <h2>
     Index</h2>
+@using (Html.BeginForm("Index", "Package"))
+{
+    <div>
+        <p>
+            <b>Search:</b>
+        </p>
+        <br />
+        <label>
+            Name :</label>
+        <input id="name" type="text" name="name" />
+        <label>
+            Item :</label>
+        @Html.DropDownList("Items",ViewBag.Items as SelectList)
+        <label>
+            Is Active :</label>
+        <input id="active" type="checkbox" name="active" />
+        <br />
+        <input type="submit" id="Search" value="Search" />
+    </div>
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -72,7 +92,11 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.PackageID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.PackageID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PackageID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.PackageID }, new
+           {
+               onclick = "return confirm('Are you sure you wish to delete the package : " +
+                          item.PackageCode + "?' );"
+           })
             </td>
         </tr>
     }

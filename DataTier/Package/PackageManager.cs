@@ -29,7 +29,9 @@ namespace DataTier.Package
 
         public static Package GetPackageByID(int packageId, string executedBy)
         {
-            return PackageDAO.GetById(packageId, executedBy);
+            Package package = PackageDAO.GetById(packageId, executedBy);
+            package.Item = Item.ItemDAO.GetByID(package.ItemID, "nirshan");
+            return package;
         }
     }
 }

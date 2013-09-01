@@ -18,9 +18,37 @@ namespace STMGMTSYS.Controllers
         public ActionResult Index()
         {
 
-            Package sample = new Package() { PackageCode = "", PackageName = "" };
+            Package sample = new Package() { PackageCode = "", PackageName = "", IsActive = true };
             List<PackageModel> packages = Utility.ConvetrToList<PackageModel, Package>(PackageManager.GetAllPackage(sample, "nirshan"));
+
+            List<SelectListItem> Items;
+            Items = GetItemsSelectList();
+            ViewBag.Items = Items;
+
             return View(packages);
+        }
+
+        [HttpPost]
+        public ActionResult Index(FormCollection collection)
+        {
+            //get the non property checkbox value , find a more suitable way later
+            bool bIsActive = Request.Form.GetValues("active") != null && Request.Form.GetValues("active")[0] != null ? true : false;
+            string item = Request.Form.GetValues("Items") != null ? Request.Form.GetValues("Items")[0] : "";
+            
+            Package srchPackage = new Package();
+            srchPackage.ItemID = int.Parse(item.ToString());
+            srchPackage.PackageName = collection["name"].Trim();
+            srchPackage.IsActive = bIsActive;
+            srchPackage.PackageCode = "";
+
+            List<Package> packList = PackageManager.GetAllPackage(srchPackage, "nirshan");
+            List<PackageModel> customerList = Utility.ConvetrToList<PackageModel, Package>(packList);
+
+            List<SelectListItem> Items;
+            Items = GetItemsSelectList();
+            ViewBag.Items = Items;
+
+            return View(customerList);
         }
 
         //
@@ -38,8 +66,24 @@ namespace STMGMTSYS.Controllers
         public ActionResult Create()
         {
             PackageModel newPackage = new PackageModel() { IsActive = true };
-            ViewBag.Items = newPackage.Items;
+
+            List<SelectListItem> Items;
+            Items = GetItemsSelectList();
+            ViewBag.Items = Items;
             return View(newPackage);
+        }
+
+        private static List<SelectListItem> GetItemsSelectList()
+        {
+            List<SelectListItem> Items;
+            List<Item> allItems = ItemManager.GetAllItem(new Item() { ItemCode = "", IsActive = true, Name = "" }, "nirshan");
+            Items = allItems.Select(map =>
+                    new SelectListItem
+                    {
+                        Text = map.ItemCode,
+                        Value = map.ItemID.ToString()
+                    }).ToList();
+            return Items;
         }
 
         //
@@ -50,6 +94,7 @@ namespace STMGMTSYS.Controllers
         {
             try
             {
+
                 string item = Request.Form.GetValues("Items") != null ? Request.Form.GetValues("Items")[0] : "";
                 package.Item = ItemManager.GetItemByID(int.Parse(item.ToString()), "nirshan");
                 PackageManager.AddPackage(Utility.convertSrcToTarget<PackageModel, Package>(package), "nirshan");
@@ -105,8 +150,7 @@ namespace STMGMTSYS.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                PackageManager.DeletePackage(id, "nirshan");
                 return RedirectToAction("Index");
             }
             catch
