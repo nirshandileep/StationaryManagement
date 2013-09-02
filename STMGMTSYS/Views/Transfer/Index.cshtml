@@ -1,0 +1,105 @@
+﻿@model IEnumerable<STMGMTSYS.Models.TransferModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromBranch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToBranch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsReceived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecievedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApprovedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransferID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransferCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransferDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromBranch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToBranch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsReceived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecievedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApprovedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

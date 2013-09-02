@@ -112,6 +112,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Trirand.Web.Mvc">
+      <HintPath>H:\jqSuiteASPNET_MVC_4_5_3_0\Files\bin\Trirand.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
@@ -246,6 +249,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\ui.jqdropdownlist.css" />
+    <Content Include="Content\themes\ui.jqgrid.css" />
+    <Content Include="Content\themes\ui.jqtreeview.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
@@ -308,6 +314,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\themes\redmond\" />
     <Folder Include="Controllers\Customer\" />
   </ItemGroup>
   <ItemGroup>
@@ -378,10 +385,10 @@
     <Content Include="Views\Package\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Transfer\Create.cshtml" />
+    <Content Include="Views\Transfer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Transfer\Index.cshtml" />
+    <Content Include="Views\Transfer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\User\Index.cshtml" />

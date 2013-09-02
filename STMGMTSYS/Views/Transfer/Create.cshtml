@@ -1,0 +1,99 @@
+﻿@model STMGMTSYS.Models.TransferModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Transfer</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.TransferID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TransferID)
+            @Html.ValidationMessageFor(model => model.TransferID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TransferCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TransferCode)
+            @Html.ValidationMessageFor(model => model.TransferCode)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model =>model.TransferDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TransferDate)
+            @Html.ValidationMessageFor(model => model.TransferDate)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.FromBranch)
+        </div>
+          <div class="editor-field">
+        @Html.DropDownList("FromBranchID", ViewBag.FromBranchList as SelectList, "-- Select --")
+            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ToBranch)
+        </div>
+          <div class="editor-field">
+        @Html.DropDownList("ToBranchID", ViewBag.ToBranchList as SelectList, "-- Select --")
+            
+        </div>
+
+
+        <table>
+        <thead>
+        <tr>
+        <th>Item Code</th> <th>Transfer Qty</th> <th>Item Code</th>
+        </tr>
+        </thead> 
+        <tbody>
+
+        @for(int i = 0 ; i < Model.TransferItems.Count; i ++)
+        {
+            <tr>
+
+            <td>
+            @Html.LabelFor(model => model.TransferItems[i].ItemCode)
+            </td>
+
+             <td>
+            @Html.LabelFor(model => model.TransferItems[i].ItemCode)
+            </td>
+
+             <td>
+            @Html.LabelFor(model => model.TransferItems[i].ItemCode)
+            </td>
+
+             </tr>
+        }
+        </tbody>
+        </table>
+
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
