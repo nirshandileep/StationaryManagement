@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\ShipmentController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\TransferController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\PackageModel.cs" />
+    <Compile Include="Models\ShipmentModel.cs" />
     <Compile Include="Models\SupplierModel.cs" />
     <Compile Include="Models\TransferDetailModel.cs" />
     <Compile Include="Models\TransferModel.cs" />
