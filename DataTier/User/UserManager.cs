@@ -35,5 +35,15 @@ namespace DataTier.User
             User user = new User() { UserName = userName, Password = password };
             return UserDAO.Authenticate(user, executedBy);
         }
+
+        public static List<User> SearchUsers(User user, int executedBy)
+        {
+            return UserDAO.GetAll(user, executedBy);
+        }
+
+        public static User GetUserByUserID(int userId, int executedBy)
+        {
+            return UserDAO.GetById(userId, executedBy);
+        }
     }
 }

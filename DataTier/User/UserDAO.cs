@@ -134,7 +134,7 @@ namespace DataTier.User
             return rslt;
         }
 
-        public static User GetById(int userId, string executedBy)
+        public static User GetById(int userId, int executedBy)
         {
             User user = null;
 

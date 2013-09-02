@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataTier.User;
+using STMGMTSYS.Models;
+using DataTier;
 
 namespace STMGMTSYS.Controllers
 {
@@ -13,7 +16,12 @@ namespace STMGMTSYS.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            User user = new User();
+            List<UserModel> users = Utility.ConvetrToList<UserModel, User>(UserManager.SearchUsers(user, 1));
+            ///
+            /// Fill roles drop down
+            ///
+            return View(users);
         }
 
         //
@@ -21,7 +29,11 @@ namespace STMGMTSYS.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            UserModel user = Utility.convertSrcToTarget<User, UserModel>(UserManager.GetUserByUserID(id, 1));
+            ///
+            /// Fill drop down
+            ///
+            return View(user);
         }
 
         //
@@ -29,19 +41,25 @@ namespace STMGMTSYS.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            UserModel user = new UserModel() { IsActive = true, IsLocked = false, RemainAttempts = 10 };
+            ///
+            /// Fill drop down
+            ///
+            return View(user);
         }
 
         //
         // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(UserModel user)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                UserManager.AddUser(Utility.convertSrcToTarget<UserModel, User>(user), 1);
+                ///
+                /// Fill drop down
+                ///
                 return RedirectToAction("Index");
             }
             catch
@@ -55,19 +73,25 @@ namespace STMGMTSYS.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            UserModel user = Utility.convertSrcToTarget<User, UserModel>(UserManager.GetUserByUserID(id, 1));
+
+            ///
+            /// Fill drop down
+            ///
+
+            return View(user);
         }
 
         //
         // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, UserModel user)
         {
             try
             {
                 // TODO: Add update logic here
-
+                UserManager.EditUser(Utility.convertSrcToTarget<UserModel, User>(user), 1);
                 return RedirectToAction("Index");
             }
             catch
