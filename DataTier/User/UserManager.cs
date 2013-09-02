@@ -7,5 +7,33 @@ namespace DataTier.User
 {
     public class UserManager
     {
+
+        public static bool AddUser(User user, int executedBy)
+        {
+            if (UserDAO.CheckUsernameExist(user.UserName, executedBy) == false)
+            {
+                return UserDAO.Insert(user, executedBy);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool EditUser(User user, int executedBy)
+        {
+            return UserDAO.Update(user, executedBy);
+        }
+
+        public static bool Delete(User user, int executedBy)
+        {
+            return UserDAO.Delete(user, executedBy);
+        }
+
+        public static bool ValidateUser(string userName, string password, int executedBy)
+        {
+            User user = new User() { UserName = userName, Password = password };
+            return UserDAO.Authenticate(user, executedBy);
+        }
     }
 }

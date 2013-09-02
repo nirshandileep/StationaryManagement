@@ -93,6 +93,19 @@ namespace CommonTier
         public static readonly string SP_OrderDetails_Update = "usp_OrderDetails_Update";
         public static readonly string SP_OrderDetails_Select = "usp_OrderDetails_Select";
         public static readonly string SP_OrderDetails_GetByOrderID = "usp_OrderDetails_GetByOrderID";
-        
+
+
+        /// <summary>
+        /// User
+        /// </summary>
+        public static readonly string SP_User_GetAll = "usp_User_GetAll";
+        public static readonly string SP_User_Insert = "usp_User_Insert";
+        public static readonly string SP_User_Update = "usp_User_Update";
+        public static readonly string SP_User_Delete = "usp_User_Delete";
+        public static readonly string SP_User_Select = "usp_User_Select";
+        public static readonly string SP_User_Select_By_Id = "usp_User_Select_ById";
+
+        public static readonly string SP_User_Check_UserName_Exists = "usp_User_Check_UserName_Exist";
+        public static readonly string SP_User_Check_Login = "usp_User_Check_Login";
     }
 }

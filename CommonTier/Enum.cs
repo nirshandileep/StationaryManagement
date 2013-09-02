@@ -14,5 +14,15 @@ namespace CommonTier
             [Description("Not Active")]
             Inactive = 2,
         }
+
+        /// <summary>
+        /// Keep this synced with the tblUserRoles table in the database
+        /// </summary>
+        public enum UserRoles
+        {
+            SuperAdmin = 1,
+            Administrator = 2,
+            User = 3,
+        }
     }
 }
