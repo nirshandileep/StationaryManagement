@@ -11,6 +11,7 @@ namespace STMGMTSYS.Models
         [Key]
         public int UserID { get; set; }
         public int RoleID { get; set; }
+        public string RoleDescription { get; set; }
 
         [Required(ErrorMessage = "User name is required")]
         public string UserName { get; set; }

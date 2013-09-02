@@ -38,7 +38,7 @@ namespace STMGMTSYS.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("STMGMT", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("SRM-SYS", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

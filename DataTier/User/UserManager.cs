@@ -30,10 +30,12 @@ namespace DataTier.User
             return UserDAO.Delete(user, executedBy);
         }
 
-        public static bool ValidateUser(string userName, string password, int executedBy)
+        public static bool ValidateUser(string userName, string password, int executedBy, out int userId)
         {
             User user = new User() { UserName = userName, Password = password };
-            return UserDAO.Authenticate(user, executedBy);
+            bool success = UserDAO.Authenticate(user, executedBy);
+            userId = user.UserID;
+            return success;
         }
 
         public static List<User> SearchUsers(User user, int executedBy)

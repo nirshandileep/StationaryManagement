@@ -16,11 +16,9 @@ namespace STMGMTSYS.Controllers
 
         public ActionResult Index()
         {
-            User user = new User();
+            User user = new User() { UserName = "" };
             List<UserModel> users = Utility.ConvetrToList<UserModel, User>(UserManager.SearchUsers(user, 1));
-            ///
-            /// Fill roles drop down
-            ///
+            ViewBag.RoleID = Helper_Classes.WebHelper.GetSelectListByEnum<CommonTier.Enum.UserRoles>();
             return View(users);
         }
 
@@ -30,9 +28,7 @@ namespace STMGMTSYS.Controllers
         public ActionResult Details(int id)
         {
             UserModel user = Utility.convertSrcToTarget<User, UserModel>(UserManager.GetUserByUserID(id, 1));
-            ///
-            /// Fill drop down
-            ///
+            ViewBag.RoleID = Helper_Classes.WebHelper.GetSelectListByEnum<CommonTier.Enum.UserRoles>();
             return View(user);
         }
 
@@ -42,9 +38,7 @@ namespace STMGMTSYS.Controllers
         public ActionResult Create()
         {
             UserModel user = new UserModel() { IsActive = true, IsLocked = false, RemainAttempts = 10 };
-            ///
-            /// Fill drop down
-            ///
+            ViewBag.Roles = Helper_Classes.WebHelper.GetSelectListByEnum<CommonTier.Enum.UserRoles>();
             return View(user);
         }
 
@@ -57,9 +51,7 @@ namespace STMGMTSYS.Controllers
             try
             {
                 UserManager.AddUser(Utility.convertSrcToTarget<UserModel, User>(user), 1);
-                ///
-                /// Fill drop down
-                ///
+                ViewBag.Roles = Helper_Classes.WebHelper.GetSelectListByEnum<CommonTier.Enum.UserRoles>();
                 return RedirectToAction("Index");
             }
             catch
@@ -74,11 +66,7 @@ namespace STMGMTSYS.Controllers
         public ActionResult Edit(int id)
         {
             UserModel user = Utility.convertSrcToTarget<User, UserModel>(UserManager.GetUserByUserID(id, 1));
-
-            ///
-            /// Fill drop down
-            ///
-
+            ViewBag.Roles = Helper_Classes.WebHelper.GetSelectListByEnum<CommonTier.Enum.UserRoles>();
             return View(user);
         }
 
@@ -92,6 +80,7 @@ namespace STMGMTSYS.Controllers
             {
                 // TODO: Add update logic here
                 UserManager.EditUser(Utility.convertSrcToTarget<UserModel, User>(user), 1);
+                ViewBag.Roles = Helper_Classes.WebHelper.GetSelectListByEnum<CommonTier.Enum.UserRoles>();
                 return RedirectToAction("Index");
             }
             catch
@@ -105,7 +94,8 @@ namespace STMGMTSYS.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            UserModel user = Utility.convertSrcToTarget<User, UserModel>(UserManager.GetUserByUserID(id, 1));
+            return View(user);
         }
 
         //
@@ -116,8 +106,7 @@ namespace STMGMTSYS.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                UserManager.Delete(new User() { UserID = id }, 1);
                 return RedirectToAction("Index");
             }
             catch

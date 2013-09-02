@@ -18,7 +18,7 @@
             @Html.LabelFor(model => model.RoleID)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.RoleID)
+            @Html.DropDownListFor(x => x.RoleID, ViewBag.Roles as SelectList, "--Select Role--")
             @Html.ValidationMessageFor(model => model.RoleID)
         </div>
 

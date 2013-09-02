@@ -169,7 +169,7 @@ namespace DataTier.User
             try
             {
                 Database db = DatabaseFactory.CreateDatabase(Constants.DBConnection);
-                DbCommand cmd = db.GetStoredProcCommand(Constants.SP_User_Insert);
+                DbCommand cmd = db.GetStoredProcCommand(Constants.SP_User_Check_UserName_Exists);
 
                 db.AddInParameter(cmd, "UserName", DbType.String, username);
                 db.AddOutParameter(cmd, "IsExists", DbType.Boolean, 4);

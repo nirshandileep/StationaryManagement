@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using STMGMTSYS.Filters;
 using STMGMTSYS.Models;
+using DataTier.User;
 
 namespace STMGMTSYS.Controllers
 {
@@ -35,8 +36,12 @@ namespace STMGMTSYS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            int userid;
+            if (ModelState.IsValid && UserManager.ValidateUser(model.UserName, model.Password, 1, out userid))
             {
+                User loggedUser = new DataTier.User.User() { UserID = userid };
+                loggedUser = UserManager.GetUserByUserID(userid, 1);
+                Session["LoggedUser"] = loggedUser;
                 return RedirectToLocal(returnUrl);
             }
 
@@ -52,8 +57,7 @@ namespace STMGMTSYS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            WebSecurity.Logout();
-
+            Session["LoggedUser"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -367,8 +371,6 @@ namespace STMGMTSYS.Controllers
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
-            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
-            // a full list of status codes.
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:

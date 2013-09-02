@@ -11,10 +11,10 @@
     <legend>UserModel</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.RoleID)
+         Role
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.RoleID)
+        @Html.DisplayFor(model => model.RoleDescription)
     </div>
 
     <div class="display-label">
@@ -73,21 +73,9 @@
         @Html.DisplayFor(model => model.CreatedDate)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UpdatedBY)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UpdatedBY)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UpdatedDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UpdatedDate)
-    </div>
 </fieldset>
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     <p>
         <input type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")

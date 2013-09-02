@@ -20,7 +20,9 @@ namespace CommonTier
         /// </summary>
         public enum UserRoles
         {
+            [Description("Super Admin")]
             SuperAdmin = 1,
+
             Administrator = 2,
             User = 3,
         }
